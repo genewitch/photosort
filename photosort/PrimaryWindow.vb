@@ -27,6 +27,7 @@ Public Class PrimaryWindow
     End Sub
 
     Private Async Sub LoadCSV(ByVal fp)
+        Me.ButtonCSVload.Visible = False
         Dim directory As String
         Dim filename As String
         directory = Path.GetDirectoryName(fp)
