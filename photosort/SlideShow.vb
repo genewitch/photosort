@@ -48,7 +48,15 @@ Module SlideShow
         ' do stuff
     End Sub
     Private Sub WriteSingleFileDescription(path As String, imagefile As String, prompt As String())
+        REM proceeding is how to create a full path to a new file including extension
+        ' it's a good thing i haven't used this because it's wrong
+        ' the code has to strip the current extension to be compatible with the desktop lora
+        ' creation tool
         Dim newFilePath As String = System.IO.Path.Combine(path, imagefile & ".txt")
+        REM proceeding to recreate, i think, what the LORA creation tool expects.
+        ' i've never actually tested it with a real dataset because
+        ' , well, look at this entire codebase worth of nonsense
+        ' to display a series of images in a folder
         Dim description As String = imagefile & "," & String.Join(",", prompt)
         System.IO.File.WriteAllText(newFilePath, description)
 
